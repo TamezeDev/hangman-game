@@ -113,7 +113,6 @@ const chooseOptionGame = (intro, comment, topic) => {
         : (isSelected.classList.remove("active"),
           button.classList.add("active"));
       topicSelected = topics.indexOf(topic);
-      console.log(topicSelected);
       topicChecker();
     });
   });
@@ -124,7 +123,6 @@ const chooseOptionGame = (intro, comment, topic) => {
   main.appendChild(div);
   startButton.addEventListener("click", (ev) => {
     checkerValues();
-    console.log(secretWord.key);
   });
 }; //Comprobar campos correctos 1 player
 const checkerValues = () => {
@@ -353,7 +351,6 @@ const nextLevel = () => {
     setTimeout(deleteInvalidWordMessage, 1000);
     setTimeout(checkerValues, 1000);
   }
-  console.log(secretWord.key);
 };
 //Reseteador de contadores siguiente nivel
 const resetCounters = () => {
