@@ -260,7 +260,7 @@ async function getTronesName() {
     invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
     setTimeout(deleteInvalidWordMessage, 1000);
     let owncounter = 0;
-    if (owncounter < 3) {
+    if (owncounter < 10) {
       setTimeout(getTronesName, 1000);
       owncounter++;
     } else {
@@ -284,7 +284,7 @@ async function getRandomName(url) {
     invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
     setTimeout(deleteInvalidWordMessage, 1000);
     let owncounter = 0;
-    if (owncounter < 3) {
+    if (owncounter < 10) {
       setTimeout(getTronesName, 1000);
       owncounter++;
     } else {
