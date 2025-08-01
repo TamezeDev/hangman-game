@@ -339,24 +339,24 @@ main > div > button:hover {
     text-align: center;
   }
   h1 {
-    font-size: 38px;
+    font-size: 33px;
     margin-top: 3%;
   }
   #primary > nav {
     flex-direction: column;
-    margin-top: 15%;
+    margin-top: 10%;
   }
   .button {
     height: 40px;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     margin-left: -5%;
   }
   #primary > img {
-    width: 140%;
-    margin-top: 20%;
+    width: 120%;
+    margin-top: 10%;
   }
   footer > P {
-    margin: 15% 15%;
+    margin: 10% 15%;
     font-size: 12px;
   }
   #game > div {
@@ -367,14 +367,13 @@ main > div > button:hover {
   }
   main > div > h4 {
     font-size: 20px;
-    margin-top: -5%;
-    margin-bottom: 2%;
+    margin-top: -20%;
   }
   main > div > section {
     flex-direction: column;
     align-items: center;
     gap: 25%;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
   }
   .option {
     width: 210px;
@@ -389,7 +388,7 @@ main > div > button:hover {
     font-size: 18px;
   }
   main > div > h2 {
-    font-size: 35px;
+    font-size: 30px;
     letter-spacing: 10px;
     margin-top: 16%;
   }
@@ -399,13 +398,19 @@ main > div > button:hover {
     align-items: center;
   }
   #game > img {
-    width: 60%;
+    width: 50%;
     align-self: center;
     margin: 8%;
   }
+  #game > div {
+    margin-top: -15px;
+  }
   main > div > h3 {
-    font-size: 20px;
-    margin: 10%;
+    font-size: 15px;
+    margin: 4%;
+  }
+  .info {
+    margin-top: 80px;
   }
   main > div > p {
     font-size: 18px;
@@ -416,11 +421,16 @@ main > div > button:hover {
     margin-top: 10%;
     margin-bottom: 35%;
   }
-  main > div > button {
-    width: 260px;
-    height: 70px;
-    font-size: 25x;
-    margin: 8%;
+  #game > div {
+    gap: 6%;
+    grid-template-columns: repeat(7, 1fr);
+    margin-left: -5%;
+    margin-top: 5%;
+  }
+  #game > div > button {
+    width: 30px;
+    height: auto;
+    font-size: 25px;
   }
   #game > section {
     width: 100%;
@@ -430,7 +440,7 @@ main > div > button:hover {
   }
   #game > section > h4 {
     font-size: 25px;
-    margin-top: 5%;
-    margin-bottom: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 }
