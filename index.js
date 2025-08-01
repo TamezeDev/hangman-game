@@ -13,6 +13,8 @@ let maxScore = 0;
 let singlePlayerStatus = false;
 //Nivel de la partdida
 let level = 0;
+//Contador de intentos de conexiones a la API
+let owncounter = 0;
 //Estados de salud
 let damageStatus = 0;
 const health = [
@@ -259,12 +261,15 @@ async function getTronesName() {
     console.log("No se han podido recibir los datos", error);
     invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
     setTimeout(deleteInvalidWordMessage, 1000);
-    let owncounter = 0;
-    if (owncounter < 10) {
-      setTimeout(getTronesName, 1000);
+    if (owncounter < 5) {
+      setTimeout(getTronesName(), 1000);
       owncounter++;
     } else {
       topicSelected = getRandomNum(2);
+      console.log("No se han podido recibir los datos", error);
+      invalidWordMessage(`Cambiando al tema de ${topics[topicSelected]}`);
+      setTimeout(deleteInvalidWordMessage, 1000);
+      owncounter = 0;
     }
   }
 }
@@ -281,14 +286,34 @@ async function getRandomName(url) {
       : (secretWord.key = data.name.toUpperCase());
   } catch (error) {
     console.log("No se han podido recibir los datos", error);
-    invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
+    invalidWordMessage(
+      `No han podido recibir los datos del tema seleccionado, reintentando conectar`
+    );
     setTimeout(deleteInvalidWordMessage, 1000);
-    let owncounter = 0;
-    if (owncounter < 10) {
-      setTimeout(getTronesName, 1000);
-      owncounter++;
-    } else {
-      topicSelected = getRandomNum(2);
+    if (owncounter < 5) {
+      if (topicSelected === 0) {
+        setTimeout(
+          getRandomName(
+            `https://thesimpsonsapi.com/api/characters/${getRandomNum(500)}`
+          ),
+          1000
+        );
+        owncounter++;
+      } else if (topicSelected === 1) {
+        setTimeout(
+          getRandomName(
+            `https://pokeapi.co/api/v2/pokemon/${getRandomNum(151)}`
+          ),
+          1000
+        );
+        owncounter++;
+      } else {
+        topicSelected = getRandomNum(2);
+        console.log("No se han podido recibir los datos", error);
+        invalidWordMessage(`Cambiando al tema de ${topics[topicSelected]}`);
+        setTimeout(deleteInvalidWordMessage, 1000);
+        owncounter = 0;
+      }
     }
   }
 }
