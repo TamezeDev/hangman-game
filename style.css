@@ -14,7 +14,6 @@
 body {
   width: 100%;
   height: 100%;
-
   background-image: url(./img/background.png);
   background-size: fill;
   background-repeat: repeat;
@@ -55,6 +54,7 @@ header {
 }
 header > section {
   width: 30%;
+  height: auto;
   display: flex;
   font-size: 20px;
   animation: rotateMaxScore 20s linear;
@@ -122,6 +122,7 @@ main {
 footer > P {
   font-size: 20px;
   color: #252121fa;
+  text-align: center;
 }
 /*CLASES PARA MOSTRAR Y OCULTAR MENÚS*/
 .show {
@@ -152,7 +153,6 @@ footer > P {
 #game > div > button:hover {
   box-shadow: 0px 0px 4px inset #7c6147;
 }
-
 /* MODO 1 JUGADOR*/
 #info2 {
   position: absolute;
@@ -164,6 +164,7 @@ main > div > h4 {
   margin-top: 5%;
   color: var(--secondaryColor);
   font-size: 25px;
+  text-align: center;
 }
 main > div > section {
   width: 100%;
@@ -190,7 +191,6 @@ main > div > section > button:hover {
   background-color: #8f2c26;
   color: #1a0b0b;
 }
-
 #nextlevel:focus {
   box-shadow: 0px 0px 4px inset #7c6147;
 }
@@ -205,7 +205,6 @@ main > p {
   color: var(--primaryColor);
   font-size: 23px;
 }
-
 main > div > h2 {
   margin-top: 6%;
   margin-left: 2%;
@@ -216,7 +215,6 @@ main > div > h2 {
 #game {
   display: flex;
 }
-
 #game > img {
   width: 45%;
   align-self: self-start;
@@ -225,7 +223,6 @@ main > div > h2 {
 #game .hide {
   display: none;
 }
-
 /*ELECCIÓN DE PALABRA 2 PLAYERS*/
 main > div {
   width: 100%;
@@ -238,6 +235,7 @@ main > div {
 main > div > h3 {
   font-size: 35px;
   color: var(--secondaryColor);
+  text-align: center;
 }
 .info {
   position: absolute;
@@ -247,6 +245,7 @@ main > div > p {
   margin: 5%;
   font-size: 25px;
   color: var(--secondaryColor);
+  text-align: center;
 }
 main > div > input {
   width: 25%;
@@ -286,11 +285,13 @@ main > div > button:hover {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: var(--primaryColor);
   text-shadow: 4px 2px 2px #1a0b0b;
+  text-align: center;
 }
 #game > section > h4 {
   font-size: 40px;
   color: var(--primaryColor);
   text-shadow: 4px 2px 2px #1a0b0b;
+  text-align: center;
 }
 #game > section > a,
 #nextLevel {
@@ -316,4 +317,120 @@ main > div > button:hover {
 #nextLevel {
   padding-top: 0;
   cursor: pointer;
+}
+/* RESPONSIVE TABLETS */
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 800px) {
+  footer > P {
+    margin-top: 30px;
+  }
+}
+/* RESPONSIVE SMARTPHONES */
+@media (max-width: 500px) {
+  header > section {
+    font-size: 12px;
+    gap: 2%;
+    animation: rotateMaxScore 10s linear;
+    animation-iteration-count: infinite;
+    text-align: center;
+  }
+  h1 {
+    font-size: 38px;
+    margin-top: 3%;
+  }
+  #primary > nav {
+    flex-direction: column;
+    margin-top: 15%;
+  }
+  .button {
+    height: 40px;
+    margin-bottom: 4%;
+    margin-left: -5%;
+  }
+  #primary > img {
+    width: 140%;
+    margin-top: 20%;
+  }
+  footer > P {
+    margin: 15% 15%;
+    font-size: 12px;
+  }
+  #game > div {
+    width: 120%;
+  }
+  #game > div > .button {
+    width: 40px;
+  }
+  main > div > h4 {
+    font-size: 20px;
+    margin-top: -5%;
+    margin-bottom: 2%;
+  }
+  main > div > section {
+    flex-direction: column;
+    align-items: center;
+    gap: 25%;
+    margin-bottom: 15%;
+  }
+  .option {
+    width: 210px;
+    height: 40px;
+    margin-top: 10%;
+    font-size: 20px;
+  }
+  #level {
+    font-size: 23px;
+  }
+  main > p {
+    font-size: 18px;
+  }
+  main > div > h2 {
+    font-size: 35px;
+    letter-spacing: 10px;
+    margin-top: 16%;
+  }
+  #game {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  #game > img {
+    width: 60%;
+    align-self: center;
+    margin: 8%;
+  }
+  main > div > h3 {
+    font-size: 20px;
+    margin: 10%;
+  }
+  main > div > p {
+    font-size: 18px;
+  }
+  main > div > input {
+    width: 80%;
+    font-size: 25px;
+    margin-top: 10%;
+    margin-bottom: 35%;
+  }
+  main > div > button {
+    width: 260px;
+    height: 70px;
+    font-size: 25x;
+    margin: 8%;
+  }
+  #game > section {
+    width: 100%;
+  }
+  #game > section > h3 {
+    font-size: 35px;
+  }
+  #game > section > h4 {
+    font-size: 25px;
+    margin-top: 5%;
+    margin-bottom: 15%;
+  }
 }

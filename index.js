@@ -150,6 +150,17 @@ const checkerValues = () => {
     setTimeout(checkerValues, 1000);
   }
 };
+//comprobar campos para siguiente nivel
+const checkerForNextLevel = () => {
+  if (secretWord.key !== undefined) {
+    onePlayerGame();
+    console.log(secretWord.key);
+  } else {
+    invalidWordMessage(`Generando partida...`);
+    setTimeout(deleteInvalidWordMessage, 1000);
+    setTimeout(checkerForNextLevel, 1000);
+  }
+};
 //Comprobar  y cargar tema elegido
 const topicChecker = () => {
   switch (topicSelected) {
@@ -162,9 +173,7 @@ const topicChecker = () => {
       break;
     case 1:
       {
-        getRandomName(
-          `https://thesimpsonsapi.com/api/characters/${getRandomNum(500)}`
-        );
+        getRandomName(`https://pokeapi.co/api/v2/pokemon/${getRandomNum(151)}`);
       }
       break;
     case 2: {
@@ -249,7 +258,14 @@ async function getTronesName() {
   } catch (error) {
     console.log("No se han podido recibir los datos", error);
     invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
-    setTimeout(deleteInvalidWordMessage, 1500);
+    setTimeout(deleteInvalidWordMessage, 1000);
+    let owncounter = 0;
+    if (owncounter < 3) {
+      setTimeout(getTronesName, 1000);
+      owncounter++;
+    } else {
+      topicSelected = getRandomNum(2);
+    }
   }
 }
 //Función para conseguir una palabra secreta aleatoria de los simpsons o pokémon
@@ -266,7 +282,14 @@ async function getRandomName(url) {
   } catch (error) {
     console.log("No se han podido recibir los datos", error);
     invalidWordMessage(`No han podido recibir los datos del tema seleccionado`);
-    setTimeout(deleteInvalidWordMessage, 1500);
+    setTimeout(deleteInvalidWordMessage, 1000);
+    let owncounter = 0;
+    if (owncounter < 3) {
+      setTimeout(getTronesName, 1000);
+      owncounter++;
+    } else {
+      topicSelected = getRandomNum(2);
+    }
   }
 }
 //comprobar validez de palabras
@@ -313,8 +336,8 @@ const finishGame = (title, comment) => {
     continueButton.innerHTML = "Siguiente nivel";
     section.appendChild(continueButton);
     continueButton.addEventListener("click", (ev) => {
-      topicChecker();
       resetCounters();
+      topicChecker();
       nextLevel();
     });
   }
@@ -343,13 +366,12 @@ const nextLevel = () => {
   const game = document.querySelector("#game");
   main.removeChild(header);
   main.removeChild(game);
-
   if (secretWord.key !== undefined) {
     onePlayerGame();
   } else {
     invalidWordMessage(`Generando partida...`);
     setTimeout(deleteInvalidWordMessage, 1000);
-    setTimeout(checkerValues, 1000);
+    setTimeout(checkerForNextLevel, 1000);
   }
 };
 //Reseteador de contadores siguiente nivel
@@ -419,9 +441,10 @@ const invalidWordMessage = (text) => {
 const damageUpdate = (damage) => {
   const img = document.getElementById("health");
   damageStatus += 1;
-  img.alt = `el jugador tiene el ${
-    (100 / (health.length - 1)) * damageStatus
-  }% de daño`;
+  img.alt = `el jugador tiene el ${(
+    (100 / (health.length - 1)) *
+    damageStatus
+  ).toFixed(0)}% de daño`;
   damageStatus <= 6 ? (img.src = health[damageStatus]) : {};
 };
 const startGame = () => {
@@ -475,7 +498,6 @@ const createHeaderGame = (text) => {
   div.setAttribute("id", "header");
   const h5 = document.createElement("h5");
   h5.setAttribute("id", "level");
-  /*  h5.innerText = ("PRUEBAS LEVEL"); */
   div.appendChild(h5);
   const h3 = document.createElement("h3");
   h3.innerText = text;
